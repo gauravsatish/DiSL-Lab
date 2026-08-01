@@ -1,0 +1,56 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x557d54d502e0 .scope module, "or_ex_tb" "or_ex_tb" 2 4;
+ .timescale -9 -9;
+v0x557d54d75160_0 .net "f", 0 0, L_0x557d54d75400;  1 drivers
+v0x557d54d75230_0 .var "x1", 0 0;
+v0x557d54d75300_0 .var "x2", 0 0;
+S_0x557d54d63c70 .scope module, "a" "or_ex" 2 8, 3 1 0, S_0x557d54d502e0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "x1";
+    .port_info 1 /INPUT 1 "x2";
+    .port_info 2 /OUTPUT 1 "f";
+L_0x557d54d75400 .functor OR 1, v0x557d54d75230_0, v0x557d54d75300_0, C4<0>, C4<0>;
+v0x557d54d2cc00_0 .net "f", 0 0, L_0x557d54d75400;  alias, 1 drivers
+v0x557d54d74f80_0 .net "x1", 0 0, v0x557d54d75230_0;  1 drivers
+v0x557d54d75040_0 .net "x2", 0 0, v0x557d54d75300_0;  1 drivers
+    .scope S_0x557d54d502e0;
+T_0 ;
+    %vpi_call 2 11 "$dumpfile", "or_ex_tb.vcd" {0 0 0};
+    %vpi_call 2 12 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x557d54d502e0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x557d54d75230_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x557d54d75300_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x557d54d75230_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x557d54d75300_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x557d54d75230_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x557d54d75300_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x557d54d75230_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x557d54d75300_0, 0, 1;
+    %delay 1, 0;
+    %vpi_call 2 26 "$display", "test complete" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "or_ex_tb.v";
+    "./or_ex.v";
